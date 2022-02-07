@@ -1,0 +1,95 @@
+WSL PHP 서버 설정
+
+WSL 설치
+요구 사항
+- 버전
+Window 10 버전 2004 이상 또는 Windows 11
+- Linux 하위 시스템 활성화
+dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+- 가상머신 플랫폼 기능을 활성화
+dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+설치
+wsl --install
+
+Ubuntu
+
+Apache2, PHP, Mysql, Nginx 설치
+
+Apache2 설치
+sudo apt install apache2
+확인 apache2 -v
+
+php 설치 (7.4버전으로 setting)
+sudo apt-get install php php-fpm php-mbstring php-xml php-mysql
+확인 php -v
+실행 sudo service php7.4-fpm start
+
+nginx 설치
+sudo apt-get install nginx
+확인 nginx -v
+
+mysql 설치
+sudo apt install mysql-server
+확인 mysql --version
+
+버전확인
+mysql --version
+실행
+- /etc/init.d/mysql start
+- sudo service mysql start
+
+접속
+mysql -u root -p
+
+사용자 만들기
+create user '사용자명'@'localhost' identified by '비밀번호';
+
+user 생성 확인
+select user, host from mysql.user
+
+데이터 베이스 생성
+create database DB명;
+
+생성 확인
+show databases;
+
+생성한 database에 사용자 권한주기
+grant all privileges on DB명.* to 사용자@localhost;
+
+
+전체 서비스 상태 확인
+service --status-all
+
+
+ngnix 연결
+
+소캣연결 주석처리 해제
+아래 참고
+/etc/nginx/sites-available/default
+
+location ~ \.php$ {
+                include snippets/fastcgi-php.conf;
+        #
+        #       # With php-fpm (or other unix sockets):
+                fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;
+        #       # With php-cgi (or other tcp sockets):
+        #       fastcgi_pass 127.0.0.1:9000;
+        }
+
+
+apache2 연결
+/etc/apache2/ports.conf : 
+Listen 0.0.0.0:80 추가
+
+/etc/apache2/
+ServerRoot "/etc/apache2" 주석제거
+ServerName "localhost" 추가
+
+
+apache php-fpm 참고 페이지
+https://cwiki.apache.org/confluence/display/HTTPD/PHP-FPM
+
+
+
+
+

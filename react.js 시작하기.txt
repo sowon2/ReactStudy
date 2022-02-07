@@ -1,0 +1,89 @@
+react.js 시작하기
+
+준비
+1. node.js 설치 
+    - url : https://nodejs.org/ko/
+    - 제일 최신본으로 설치
+
+node.js가 필요한 이유
+Node.js와 직접적인 연관은 없지만, 프로젝트를 개발하는데 주요 도구들이 Node.js를 사용하기 때문이다.
+
+
+2. Visual Studio Code 
+    1) 설치 url : https://code.visualstudio.com/
+    2) 파일 -> 폴더열기 새 프로젝트 파일 가져오기
+    3) 아래 터미널을 열고, npx create-react-app 프로젝트명 입력 -> 생성이 된다.
+
+※ 만일 'create-react-app'은(는) 내부 또는 외부 명령, 실행할 수 있는 프로그램, 또는 배치 파일이 아닙니다. 라고 나올경우,
+Visual Studio Code의 기본적인 터미널이 PowerShell이니, cmd로 변경해야된다.
+PowerShell -> cmd로 변경 방법
+1) Ctrl + Shift + P 단축키로 명령 팔레트를 열고,
+2) 'select default shell' 검색 'Terminal:Select Default Shell' 명령을 선택
+3) 'Commnad Prompt'를 선택하고 아래 터미널 종료후 다시 터미널을 키면 cmd로 변경이 된다.
+
+프로젝트 생성 후 실행 방법
+해당 프로젝트 폴더를 불러온 후, npm start 터미널 입력하면 됩니다.
+
+웹팩이란?
+오픈 소스 자바스크립트 모듈 번들로로써 여러개로 나누어져 있는 파일들을 하나의 자바스크립트 코드로 압축하고 최적화하는 라이브러리.
+
+웹팩 장점이란?
+1. 여러 파일의 자바스크립트 코드를 압축하여 최적화 할 수 있기 때문에 로딩에 대한 네트워크 비용을 줄일 수 있다.
+2. 모듈 단위로 개발 가능 가독성과 유지보수가 쉽다.
+
+바벨이란?
+최신 자바스크립트 문법을 지원하지 않는 브라우저들을 위해서 최신 자바스크립트 문법을 구형 브라우저에서도 돌수 있게 변환 시켜주는 라이브러리
+
+이름을 수정하면 안되는 파일들
+1. public/index.Html
+2. src/index.js
+
+
+
+컴포넌트를 사용하면 장점
+1. 가독성 올라감
+2. 한번 코드를 정의를 해두면 여러번 사용 가능
+3. 유지보수가 쉬움
+
+
+JSX 사용
+JavaScript를 사용하는 파일안에 Html를 사용한다.
+
+Apple Store 만들기
+-> 쇼핑몰
+
+1. 인증페이지 (로그인 / 회원가입)
+2. 상품을 클레이폼에 등록 ( 관리도구 )
+3. 시작 페이지 구현 (2번에서 등록한 상품을 시작 페이지 나열)
+4. 특정 상품 페이지 (상품에 대한 설명과 구매수량 -> 장바구니/바로구매)
+5. 장바구니 페이지 구현
+6. 결제페이지
+7. 주문 히스토리 페이지
+
+==> 디자인 보단 기술 위주
+
+
+React Router Dom 리액트를 사용할 때 페이지를 이동할 때 필요한 라이브러리
+
+설치 : npm install react-router-dom --save
+-> package.json에 자동으로 추가가 된다.
+
+예시 ) https://stackblitz.com/edit/github-p1nowx?file=src%2FApp.tsx
+
+BrowserRouter : History API를 사용해 URL과 UI를 동기화하는 라우터
+Routes : 세션 기록의 바로 앞 페이지로 이동하는 비동기 메서드, 브라우저의 앞으로 가기를 누르는 것과 같은 효과를 낸다.
+Route : 컴포넌트의 속성에 설정된 URL과 현재 경로가 일치하면 해당하는 컴포넌트를 렌더링한다.
+Link : a태그와 비슷하다. to속성에 설정된 링크로 이동한다. 기록이 history 객체에 저장된다.
+
+
+CSS Framework 사용하는 이유?
+=> 기능을 만드는데 더욱 집중하기 위해
+
+CSS FRAMEWORK 종류 for React JSX
+1. Material UI
+2. React Bootstrap
+3. Semantic UI
+4. Ant Design
+5. Materialize
+
+==> 2. 사용할것임
