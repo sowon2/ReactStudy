@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Clayful from 'clayful/client-node';
+import Clayful from 'clayful/client-js';
 
 function RegisterPage() {
 
@@ -17,22 +17,23 @@ function RegisterPage() {
 
   const handleSubmit = (event) =>{
     event.preventDefault();
+   
     var Customer = Clayful.Customer;
-
-    var payload = {
+    
+    const payload = {
       email,
       password,
     };
-    // 키와 value값이 같다면 생략
 
-    Customer.createMe(payload, function (err, result){
+    Customer.createMe(payload , function(err, result){
+
       if(err){
         console.log(err.code);
       }
       var data = result.data;
-
       console.log(data);
-    });
+    })
+
 
   }
 
