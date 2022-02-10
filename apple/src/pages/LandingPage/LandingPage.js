@@ -27,6 +27,9 @@ function LandingPage() {
       console.log(response.data);
   
   });
+  return (
+      <div>Landing Page2222</div>
+  )
 }
 
 export default LandingPage;
